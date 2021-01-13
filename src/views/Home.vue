@@ -6,13 +6,20 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import draggable from "vuedraggable"
 export default {
-  name: 'Home',
+  name: "app",
   components: {
-    HelloWorld
+    draggable
+  },
+  data() {
+    return {
+      tasks: [
+        ['task1-1', 'task1-2', 'task1-3', 'task1-4', 'task1-5'],
+        ['task2-1', 'task2-2', 'task2-3', 'task2-4', 'task2-5'],
+        ['task3-1', 'task3-2', 'task3-3', 'task3-4', 'task3-5']
+      ]
+    }
   }
 }
 </script>
