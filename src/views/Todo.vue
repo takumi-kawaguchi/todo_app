@@ -3,6 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col" v-for="list in tasks" :key="list">
+                <button type="button" class="task-btn btn btn-outline-secondary btn-circle rounded-circle p-0" @click="addTask">＋</button>Click to add task
                 <draggable class="list-group" element="ul" :options="{ group: 'tasks' }">
                     <li class="list-group-item" v-for="item in list" :key="item">{{ item }}</li>
                 </draggable>
@@ -15,6 +16,9 @@
 <script>
 // @ is an alias to /src
 import draggable from "vuedraggable"
+import TaskGroup from "../models/task_group"
+import Task      from "../models/task"
+
 export default {
   name: "app",
   components: {
@@ -31,3 +35,14 @@ export default {
   }
 }
 </script>
+
+<style>
+.task-btn {
+    margin: 5px;
+}
+
+.btn-circle {
+    width: 2em;
+    height: 2em;
+}
+</style>
