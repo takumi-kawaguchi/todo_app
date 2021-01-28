@@ -52,28 +52,12 @@ export default {
             }
         },
         addNewGroup: function() {
-            this.taskGroups.push({
+            this.taskGroups.splice(this.taskGroups.length, 0, {
                 groupName: '無名のグループ',
+                isGroupNameEditable: false,
                 additionalTask: '',
                 tasks:[]
             });
-        },
-        makeGroupNameEditable: function(index) {
-            var group = this.taskGroups[index];
-            var newGroup = {
-                groupName: group.groupName,
-                isGroupNameEditable: true,
-                additionalTask: group.additionalTask,
-                tasks: group.tasks
-            }
-            this.$set(this.taskGroups, index, newGroup);
-            // this.taskGroups.splice(index, 1, newGroup);
-            console.log(this.taskGroups.length);
-            for (const item of this.taskGroups) {
-                console.log(item);
-            }
-            // this.$set(this.taskGroups, index, newGroup)
-            // group.isGroupNameEditable = true;
         },
         changeStatus: function(group) {
             group.isGroupNameEditable = !group.isGroupNameEditable
