@@ -9,8 +9,9 @@
                 <div v-else>
                     <p @click="changeStatus(group)">{{ group.groupName }}</p>
                 </div>
-                <input type="text" v-model="group.additionalTask"><button type="button" class="task-btn btn btn-outline-secondary btn-circle rounded-circle p-0" @click="addTask(group.additionalTask, index)">+</button>
-                <draggable class="list-group" element="ul" :options="{ group: taskGroups }">
+                <input type="text" v-model="group.additionalTask" placeholder="type your task here"><button type="button" class="task-btn btn btn-outline-secondary btn-circle rounded-circle p-0" @click="addTask(group.additionalTask, index)">+</button>
+                <!-- <draggable class="list-group" element="ul" :options="{ group: taskGroups }"> -->
+                <draggable class="list-group" element="ul" handle=".taskGroup">
                     <li class="list-group-item" v-for="task in group.tasks" :key="task">{{ task }}</li>
                 </draggable>
             </div>
@@ -61,7 +62,6 @@ export default {
         },
         changeStatus: function(group) {
             group.isGroupNameEditable = !group.isGroupNameEditable
-            console.log(group.isGroupNameEditable);
         }
     }
 }
